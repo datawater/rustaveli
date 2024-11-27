@@ -17,5 +17,10 @@ options:
                         Number of structs to generate
 ```
 
+## Building
+```
+cargo build --release
+```
+
 ## License
 This code is released under the [MIT License](./LICENSE)
