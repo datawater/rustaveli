@@ -1,5 +1,5 @@
 [workspace]
-members = ["rustaveli", "rustaveli_cli"]
+members = [ "c_test","rustaveli", "rustaveli_cli"]
 resolver = "2"
 
 [profile.release]

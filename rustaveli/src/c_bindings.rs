@@ -19,5 +19,5 @@ pub unsafe extern "C" fn c_finish_c_program(program: *mut RandomCFile) -> *const
     assert!(!program.is_null());
     let string = CString::new((*program).finish()).unwrap();
 
-    string.as_ptr()
+    string.into_raw()    
 }
