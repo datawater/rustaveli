@@ -13,7 +13,6 @@ pub struct RandomCFile {
 static STARTING_C_CODE: &str = "// #include <math.h>
 #include <string.h>
 #include <stdlib.h>
-#include <assert.h>
 #include <stdbool.h>
 
 // #define FLT_EPSILON 0.0001
@@ -26,10 +25,15 @@ static STARTING_C_CODE: &str = "// #include <math.h>
 // #define CMP_SIZE_T(a, b) CMP(a, b)
 // #define CMP_STRUCT(a, b) (memcmp((a), (b), sizeof(a)))
 
+__attribute__((noreturn)) volatile void __assert(bool x) {
+    if (!x)
+        *NULL;
+}
+
 volatile char* __strdup(char* a) {
     size_t l = strlen(a);
     char* r = (char*) malloc(sizeof(char) * l);
-    assert(r != NULL);
+    __assert(r != NULL);
     memcpy(r, a, sizeof(char) * l);
     return r;
 }
@@ -38,7 +42,7 @@ volatile char* __strcat(char* a, char* b) {
     size_t al = strlen(a);
     size_t bl = strlen(b);
     char* r = (char*) malloc(sizeof(char) * (al + bl));
-    assert(r != NULL);
+    __assert(r != NULL);
     memcpy(r, a, sizeof(char) * al);
     memcpy(r + (sizeof(char) * al), b, sizeof(char) * bl);
     return r;
