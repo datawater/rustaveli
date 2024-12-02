@@ -1,8 +1,8 @@
 use rand::prelude::*;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub(crate) struct RandomString {
-    pub(crate) value: String,
+pub struct RandomString {
+    pub value: String,
     amount_of_words: u8,
     amount_of_random_letters_min: u8,
 }
