@@ -12,6 +12,7 @@ pub struct RandomCFile {
 }
 
 static STARTING_C_CODE: &str = "// #include <math.h>
+#include <assert.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
