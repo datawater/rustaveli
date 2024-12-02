@@ -26,15 +26,10 @@ static STARTING_C_CODE: &str = "// #include <math.h>
 // #define CMP_SIZE_T(a, b) CMP(a, b)
 // #define CMP_STRUCT(a, b) (memcmp((a), (b), sizeof(a)))
 
-__attribute__((noreturn)) volatile void __assert(bool x) {
-    if (!x)
-        *NULL;
-}
-
 volatile char* __strdup(char* a) {
     size_t l = strlen(a);
     char* r = (char*) malloc(sizeof(char) * l);
-    __assert(r != NULL);
+    assert(r != NULL);
     memcpy(r, a, sizeof(char) * l);
     return r;
 }
@@ -43,7 +38,7 @@ volatile char* __strcat(char* a, char* b) {
     size_t al = strlen(a);
     size_t bl = strlen(b);
     char* r = (char*) malloc(sizeof(char) * (al + bl));
-    __assert(r != NULL);
+    assert(r != NULL);
     memcpy(r, a, sizeof(char) * al);
     memcpy(r + (sizeof(char) * al), b, sizeof(char) * bl);
     return r;
