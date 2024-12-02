@@ -7,6 +7,7 @@ use rand::prelude::*;
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct RandomCFile {
     number_of_functions: u8,
+    generated_functions: Vec<String>,
     code: String,
 }
 
@@ -83,7 +84,9 @@ impl RandomCFile {
     }
 
     fn generate_function(&mut self) {
-        self.code += CRunningFunction::new(None).finish();
+        let f = CRunningFunction::new(None);
+        self.code += f.finish();
+        self.generated_functions.push(f.name);
     }
 
     fn generate_functions(&mut self) {
@@ -96,5 +99,9 @@ impl RandomCFile {
 
     pub fn finish(&self) -> &str {
         return &self.code;
+    }
+
+    pub fn get_generated_function_names(&self) -> Vec<String> {
+        return self.generated_functions.clone();
     }
 }
