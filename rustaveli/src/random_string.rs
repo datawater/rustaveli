@@ -1,5 +1,6 @@
 use rand::prelude::*;
 
+/// A struct representing a random string.
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct RandomString {
     pub value: String,
@@ -31,6 +32,7 @@ impl RandomString {
         ]
     }
 
+    /// A constructor for RandomStrign. if None are provided, it uses a default values of 3 and 2.
     pub fn new(amount_of_words: Option<u8>, amount_of_random_letters_min: Option<u8>) -> Self {
         let mut r = Self::default();
         let mut rng = thread_rng();

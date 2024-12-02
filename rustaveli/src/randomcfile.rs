@@ -4,6 +4,7 @@ use crate::statics::*;
 
 use rand::prelude::*;
 
+/// A struct representing a random C file.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct RandomCFile {
     number_of_functions: u8,
@@ -48,6 +49,7 @@ volatile char* __strcat(char* a, char* b) {
 ";
 
 impl RandomCFile {
+    /// Function creating a RandomCFile struct
     pub fn new(number_of_functions: u8, number_of_structs_to_generate: u8) -> Self {
         let mut rt = Self::default();
         rt.number_of_functions = number_of_functions;
@@ -93,10 +95,12 @@ impl RandomCFile {
         self.code = self.code[0..self.code.len() - 2].to_string();
     }
 
+    /// Finish generating, Return the generated code
     pub fn finish(&self) -> &str {
         return &self.code;
     }
 
+    /// A function returning the generated functions names
     pub fn get_generated_function_names(&self) -> Vec<String> {
         return self.generated_functions.clone();
     }

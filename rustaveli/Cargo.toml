@@ -1,10 +1,9 @@
 [package]
 name = "rustaveli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A library to generate random c programs"
 license = "MIT"
-license-file = "LICENSE" 
 repository = "https://github.com/datawater/rustaveli"
 
 [dependencies]
