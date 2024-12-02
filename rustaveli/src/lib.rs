@@ -6,8 +6,9 @@ mod cstruct;
 mod ctype;
 mod cutilityfunction;
 mod cvariable;
-mod random_string;
 mod randomcfile;
 mod statics;
+mod random_string;
 
 pub use crate::randomcfile::*;
+pub use crate::random_string::*;
