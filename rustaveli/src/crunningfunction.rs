@@ -40,7 +40,7 @@ impl CRunningFunction {
     }
 
     fn generate_defenition(&self) -> String {
-        return format!("__attribute__((constructor)) void {}()", self.name);
+        return format!("void {}()", self.name);
     }
 
     fn generate_body(&mut self) {
